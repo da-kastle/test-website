@@ -3,22 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Website</title>
+    <title>Likert Scale Survey</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
-        <p>This is a simple site hosted on GitHub Pages.</p>
+        <h1>Personality Survey</h1>
+        <p>Please rate the following statements on a scale from 1 (Strongly Disagree) to 5 (Strongly Agree).</p>
     </header>
 
     <section>
-        <button onclick="changeText()">Click Me!</button>
-        <p id="message">This is a sample paragraph.</p>
+        <form id="surveyForm">
+            <div class="question">
+                <p>1. I am lazy.</p>
+                <label><input type="radio" name="lazy" value="1"> 1</label>
+                <label><input type="radio" name="lazy" value="2"> 2</label>
+                <label><input type="radio" name="lazy" value="3"> 3</label>
+                <label><input type="radio" name="lazy" value="4"> 4</label>
+                <label><input type="radio" name="lazy" value="5"> 5</label>
+            </div>
+
+            <div class="question">
+                <p>2. I am thorough.</p>
+                <label><input type="radio" name="thorough" value="1"> 1</label>
+                <label><input type="radio" name="thorough" value="2"> 2</label>
+                <label><input type="radio" name="thorough" value="3"> 3</label>
+                <label><input type="radio" name="thorough" value="4"> 4</label>
+                <label><input type="radio" name="thorough" value="5"> 5</label>
+            </div>
+
+            <button type="button" onclick="submitSurvey()">Submit</button>
+        </form>
+
+        <div id="results"></div>
     </section>
 
     <footer>
-        <p>© 2025 My GitHub Website</p>
+        <p>© 2025 Likert Scale Survey</p>
     </footer>
 
     <script src="script.js"></script>
