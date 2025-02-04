@@ -19,35 +19,66 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Handle user login
-function login() {
+// Login function
+window.login = function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    signInWithEmailAndPassword(auth, email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
             alert("Login successful!");
-            showSurvey();
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("surveySection").style.display = "block";
         })
         .catch((error) => {
-            alert("Error: " + error.message);
+            alert("Login failed: " + error.message);
         });
-}
+};
 
-// Handle user registration
-function register() {
+// Register function
+window.register = function register() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(() => {
             alert("Registration successful! Please log in.");
         })
         .catch((error) => {
-            alert("Error: " + error.message);
+            alert("Registration failed: " + error.message);
         });
-}
+};
 
+// Submit Survey function
+window.submitSurvey = function submitSurvey() {
+    const lazy = document.querySelector('input[name="lazy"]:checked');
+    const thorough = document.querySelector('input[name="thorough"]:checked');
+
+    if (!lazy || !thorough) {
+        alert("Please answer all the questions before submitting.");
+        return;
+    }
+
+    const response = {
+        lazy: lazy.value,
+        thorough: thorough.value,
+        timestamp: new Date().toISOString(),
+    };
+
+    const db = firebase.firestore();
+    db.collection("surveyResponses").add(response)
+        .then(() => {
+            alert("Survey submitted successfully!");
+            document.getElementById("results").innerHTML = `
+                <p>Thank you for your submission!</p>
+                <p>You rated "I am lazy" as: <strong>${lazy.value}</strong></p>
+                <p>You rated "I am thorough" as: <strong>${thorough.value}</strong></p>
+            `;
+        })
+        .catch((error) => {
+            console.error("Error submitting survey: ", error);
+        });
+};
 // Display the survey section after login
 function showSurvey() {
     document.getElementById("loginSection").style.display = "none";
