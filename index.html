@@ -1,14 +1,3 @@
-<!-- Firebase App (required for all Firebase services) -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-
-<!-- Firebase Authentication -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-
-<!-- Firebase Firestore -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-
-<!-- Main script -->
-<script src="script.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +12,11 @@
         <p>Please log in or register to take the survey.</p>
     </header>
 
-    <!-- Login and Registration Section -->
+    <!-- Login Section -->
     <section id="loginSection">
         <h2>Login</h2>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
         <button onclick="register()">Register</button>
     </section>
@@ -63,7 +52,12 @@
         <p>© 2025 Likert Scale Survey</p>
     </footer>
 
-    <!-- Firebase Scripts and Main JavaScript File -->
-    <script src="script.js" type="module"></script>
+    <!-- Firebase Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+    <!-- Custom JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
