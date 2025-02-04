@@ -9,10 +9,21 @@
 <body>
     <header>
         <h1>Personality Survey</h1>
-        <p>Please rate the following statements on a scale from 1 (Strongly Disagree) to 5 (Strongly Agree).</p>
+        <p>Please log in or register to take the survey.</p>
     </header>
 
-    <section>
+    <!-- Login and Registration Section -->
+    <section id="loginSection">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <button onclick="register()">Register</button>
+    </section>
+
+    <!-- Survey Section (Hidden by Default) -->
+    <section id="surveySection" style="display:none;">
+        <h2>Survey</h2>
         <form id="surveyForm">
             <div class="question">
                 <p>1. I am lazy.</p>
@@ -34,7 +45,6 @@
 
             <button type="button" onclick="submitSurvey()">Submit</button>
         </form>
-
         <div id="results"></div>
     </section>
 
@@ -42,6 +52,7 @@
         <p>© 2025 Likert Scale Survey</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Firebase Scripts and Main JavaScript File -->
+    <script src="script.js" type="module"></script>
 </body>
 </html>
