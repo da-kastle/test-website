@@ -3,14 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-// Firebase Configuration (replace with your actual Firebase project details)
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDPpkBsAqXHmLjy2SQ9ccxmPRjx1ekI8vc",
+  authDomain: "test-project-1-c42ee.firebaseapp.com",
+  projectId: "test-project-1-c42ee",
+  storageBucket: "test-project-1-c42ee.firebasestorage.app",
+  messagingSenderId: "935167234229",
+  appId: "1:935167234229:web:1c4d8c9c93bc409379aefc",
+  measurementId: "G-571V19Z2XR"
 };
 
 // Initialize Firebase
